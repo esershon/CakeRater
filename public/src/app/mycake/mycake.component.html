@@ -1,0 +1,14 @@
+<div>
+  <h1>{{myCake.bakerName}}</h1>
+  <img height="400px" [src]="myCake.imgUrl" alt="a picture of the selected cake">
+  <div *ngIf="myCake.ratings.length>0">
+    <h3>{{averageRating()}} star average</h3>
+    <h3>Reviews</h3>
+    <ul *ngFor="let rating of myCake.ratings">
+      <li>{{rating.stars}} stars: {{rating.content}}</li>
+    </ul>
+  </div>
+  <div *ngIf="myCake.ratings.length==0">
+    <h3>This cake hasn't yet been rated</h3>
+  </div>
+</div>

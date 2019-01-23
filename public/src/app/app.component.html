@@ -1,0 +1,24 @@
+<div>
+  <h3>Add a Cake to be Rated</h3>
+  <hr>
+  <form>
+    <label>Baker Name
+      <input type="text" name="bakerName" [(ngModel)]="newCake.bakerName" />
+    </label>
+    <label>Cake Image URL
+      <input type="text" name="imgUrl" [(ngModel)]="newCake.imgUrl" />
+    </label>
+    <button (click)="submitCake()">Submit Cake</button>
+  </form>
+</div>
+
+<app-mycake *ngIf="selectedCake" [myCake]='selectedCake'></app-mycake>
+
+<div *ngFor="let cake of cakes">
+  <p>{{cake.bakerName}}</p>
+  <img (click)="selectCake(cake)" height="200px" [src]=cake.imgUrl alt="cake">
+  <app-rate [toRateId]='cake._id'></app-rate>
+</div>
+
+
+<router-outlet></router-outlet>
